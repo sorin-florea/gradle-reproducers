@@ -1,0 +1,17 @@
+apply plugin: 'java'
+
+repositories {
+    maven {
+        name = 'proxied mavenCentral with credentials'
+        url 'https://repo.maven.apache.org/maven2/'
+        credentials { username = 'foo'; password = 'bar' }
+    }
+    maven {
+        name = 'proxied mavenCentral'
+        url 'https://repo.maven.apache.org/maven2/'
+
+    }
+    mavenLocal()
+}
+
+dependencies { testImplementation 'junit:junit:4.13.1' }
