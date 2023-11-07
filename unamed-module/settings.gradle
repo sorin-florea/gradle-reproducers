@@ -1,0 +1,17 @@
+rootProject.name = 'project-structure-duplicate-names'
+include ':a'
+project(':a').projectDir = file('a')
+include ':a:tests'
+project(':a:tests').projectDir = file('a/tests')
+include ':a:tests:integ-tests'
+project(':a:tests:integ-tests').projectDir = file('a/tests/integ-tests')
+include ':a:tests:test-utils-a'
+project(':a:tests:test-utils-a').projectDir = file('a/tests/test-utils-a')
+include ':b'
+project(':b').projectDir = file('b')
+include ':b:tests'
+project(':b:tests').projectDir = file('b/tests')
+include ':b:tests:integ-tests'
+project(':b:tests:integ-tests').projectDir = file('b/tests/integ-tests')
+include ':b:tests:test-utils-b'
+project(':b:tests:test-utils-b').projectDir = file('b/tests/test-utils-b')
