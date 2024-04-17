@@ -1,0 +1,15 @@
+@CacheableTask
+class CacheableCustomTask extends DefaultTask {
+  @Input String input
+  @OutputFile File outputFile = project.file('build/dir')
+  
+  @TaskAction 
+  void generate() {
+    outputFile.parentFile.mkdirs()
+    outputFile.text = input
+   }
+}
+
+task cacheableTask(type: CacheableCustomTask) {
+  input = '1'
+}
